@@ -7,55 +7,55 @@ data Tone = C | C' | D | D' | E | F | F' | G | G' | A | B | H deriving (Show, Eq
 
 type Tune = [Tone]
 
-solve :: [[Char]] -> [[Char]]
-solve =
-  map tune''
+fixed :: [[Char]] -> [[Char]]
+fixed =
+  map fromTune
     . order
     . extract
 
-solvePartTwo :: [[Char]] -> [[Char]]
-solvePartTwo =
-  map tune''
+random :: [[Char]] -> [[Char]]
+random =
+  map fromTune
     . order'
     . extract
 
 extract :: [[Char]] -> [Tune]
-extract = map tune
+extract = map asTune
 
-tune :: [Char] -> Tune
-tune [] = []
-tune [x] = [tone x]
-tune (x : y : ys)
-  | y == '#' = tone' [x, y] : tune ys
-  | otherwise = tone x : tune (y : ys)
+asTune :: [Char] -> Tune
+asTune [] = []
+asTune [x] = [asTone x]
+asTune (x : y : ys)
+  | y == '#' = asTone' [x, y] : asTune ys
+  | otherwise = asTone x : asTune (y : ys)
 
-tune'' :: Tune -> [Char]
-tune'' = concatMap tune'
+fromTune :: Tune -> [Char]
+fromTune = concatMap fromTone
 
-tune' :: Tone -> [Char]
-tune' C' = "C#"
-tune' D' = "D#"
-tune' F' = "F#"
-tune' G' = "G#"
-tune' x = show x
+fromTone :: Tone -> [Char]
+fromTone C' = "C#"
+fromTone D' = "D#"
+fromTone F' = "F#"
+fromTone G' = "G#"
+fromTone x = show x
 
-tone :: Char -> Tone
-tone 'C' = C
-tone 'D' = D
-tone 'E' = E
-tone 'F' = F
-tone 'G' = G
-tone 'A' = A
-tone 'B' = B
-tone 'H' = H
-tone _ = error ""
+asTone :: Char -> Tone
+asTone 'C' = C
+asTone 'D' = D
+asTone 'E' = E
+asTone 'F' = F
+asTone 'G' = G
+asTone 'A' = A
+asTone 'B' = B
+asTone 'H' = H
+asTone _ = error ""
 
-tone' :: [Char] -> Tone
-tone' "C#" = C'
-tone' "D#" = D'
-tone' "F#" = F'
-tone' "G#" = G'
-tone' _ = error ""
+asTone' :: [Char] -> Tone
+asTone' "C#" = C'
+asTone' "D#" = D'
+asTone' "F#" = F'
+asTone' "G#" = G'
+asTone' _ = error ""
 
 scale :: [Tone]
 scale = [C, C', D, D', E, F, F', G, G', A, B, H]
