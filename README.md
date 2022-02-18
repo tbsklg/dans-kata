@@ -10,7 +10,7 @@ This project was created using [Stack](https://docs.haskellstack.org/en/stable/R
 # Usage
 
 ## Input File
-A text file containing the tunes is required. For example, the content should look like the following:
+A `input.txt` file containing the tunes is required. The file should be located at ```app/resources/```. For example, the content should look like the following:
 
 ```
 DADF#AD
