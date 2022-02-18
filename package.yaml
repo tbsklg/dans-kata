@@ -1,10 +1,10 @@
 name:                dans-kata
 version:             0.1.0.0
-github:              "githubuser/dans-kata"
+github:              "tbsklg/dans-kata"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2022 Author name here"
+author:              "Tobias Klug"
+maintainer:          "tbs.klg@gmail.com"
+copyright:           "2022 Tobias Klug"
 
 extra-source-files:
 - README.md
@@ -35,6 +35,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - dans-kata
+    - containers
 
 tests:
   dans-kata-test:
@@ -46,3 +47,7 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - dans-kata
+    - hspec == 2.7.10
+    - QuickCheck == 2.14.2
+    - HUnit == 1.6.2.0
+
