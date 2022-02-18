@@ -29,6 +29,6 @@ CGCGAD
 usage: stack run -- [fixed | random]
 
 arguments:
-  fixed         orders the tunes based on the first tune
-  random        orders the tunes based on the best costs
+  fixed         returns the best order of the tunes starting with first tune
+  random        returns the best order of the tunes based on all tunes
 ```
